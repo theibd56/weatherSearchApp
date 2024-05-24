@@ -15,6 +15,15 @@ const SearchPanel = () => {
     const [humidity, setHumidity] = useState(35);
     const [wind, setWind] = useState(3.74);
     const [inputValue, setInputValue] = useState('');
+    const [dt, setDt] = useState(0);
+
+    const timeRequest = new Date(dt * 1000)
+
+    const timeOptions = {  
+        hour:  'numeric', 
+        hour12 : true,
+        minute : 'numeric'
+    };
 
     const _apiKey = 'b387d43b771fe20d3b3eab2f49ea6426';   
 
@@ -34,39 +43,43 @@ const SearchPanel = () => {
         setCity(city => data.name);
         setTemp(temp => data.main.temp);
         setIcon(icon => data.weather[0].icon);
-        setDescription(description => data.weather[0].description);
+        setDescription(description => data.weather[0].main);
         setHumidity(humidity => data.main.humidity);
         setWind(wind => data.wind.speed)
+        setDt(dt => data.dt)
     }
 
     const searchWeather = () => {
         getWeather(inputValue)
     }
 
-    const preventDefault = (e) => {
-        e.preventDefault();
+    const onKeyUp = (e) => {
+        if(e.key === 'Enter') {
+            getWeather(inputValue)
+        }
     }
 
     const cityImage = `https://source.unsplash.com/1600x900/?`;
 
     return (
         <div className="container" style={{backgroundImage: `url(${cityImage})`, backgroundSize: 'cover'}}>
-            <form className='searchPanel' onClick={preventDefault}>
+            <div className='searchPanel'>
                 <div className='searchPanel-form'>
                     <input type="text" 
                     placeholder="Please enter your city" 
                     className='searchPanel__input'
                     value={inputValue}
                     required
-                    onChange={(e) => setInputValue(e.target.value)}/>
-                    <button type="button" className='searchPanel__button' onClick={searchWeather} onKeyDown={preventDefault}><img src={searchImg} alt="search-normal" /></button>
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyUp={onKeyUp}/>
+                    <button type="button" className='searchPanel__button' onClick={searchWeather}><img src={searchImg} alt="search-normal" /></button>
                 </div>
                 <div className='searchPanel-content'>
                     <div className="searchPanel-content-city">
                         Weather in {city}
                     </div>
                     <div className="searchPanel-content-time">
-                        1:34 AM
+                        {timeRequest.toLocaleString('en-US', timeOptions)}
                     </div>
                 </div>
                 <div className='searchPanel-weather'>
@@ -95,7 +108,7 @@ const SearchPanel = () => {
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     )
 }
