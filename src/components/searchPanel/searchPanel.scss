@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.searchPanel {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0 auto;
+    width: 440px;
+    padding: 24px;
+    backdrop-filter: blur(40px);
+    background: rgba(45, 45, 45, 0.46);
+    border-radius: 24px;
+    &__input {
+        width: 100%;
+        border-radius: 40px;
+        padding: 8px 16px;
+        border: none;
+        display: block;
+        background: rgba(45, 45, 45, 0.4);
+        line-height: 1.23077;
+        color: rgba(255, 255, 255, 0.5);
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+    &__button {
+        position: absolute; 
+        top: 32px; 
+        right: 40px;
+        cursor: pointer;
+        border: 0;
+        background: transparent;
+    }
+    &-content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 16px;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 1.2;
+        color: #fff;
+    }
+    &-weather {
+        margin-top: 16px;
+        gap: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        &-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 40px;
+            padding: 4px 12px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            &-img {
+                width: 25px;
+            }
+        }
+    }
+}

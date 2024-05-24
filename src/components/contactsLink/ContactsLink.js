@@ -1,0 +1,1 @@
+import './contactsLink.scss';
