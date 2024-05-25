@@ -59,7 +59,7 @@ const SearchPanel = () => {
         }
     }
 
-    const cityImage = `https://source.unsplash.com/1600x900/?`;
+    const cityImage = `https://source.unsplash.com/1600x900/?${city}+city`;
 
     return (
         <div className="container" style={{backgroundImage: `url(${cityImage})`, backgroundSize: 'cover'}}>
