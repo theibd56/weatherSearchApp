@@ -1,5 +1,4 @@
 .container {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,6 +33,10 @@
         cursor: pointer;
         border: 0;
         background: transparent;
+        transition: all 0.8s;
+        &:hover {
+            transform: scale(1.2);
+        }
     }
     &-content {
         display: flex;

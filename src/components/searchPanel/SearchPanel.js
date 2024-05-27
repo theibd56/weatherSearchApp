@@ -59,10 +59,8 @@ const SearchPanel = () => {
         }
     }
 
-    const cityImage = `https://source.unsplash.com/1600x900/?${city}+city`;
-
     return (
-        <div className="container" style={{backgroundImage: `url(${cityImage})`, backgroundSize: 'cover'}}>
+        <div className="container">
             <div className='searchPanel'>
                 <div className='searchPanel-form'>
                     <input type="text" 
