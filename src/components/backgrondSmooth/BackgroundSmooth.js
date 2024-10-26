@@ -1,8 +1,10 @@
+import React, { useEffect } from 'react';
+
 import './backgroundSmooth.scss';
 
 const BackgroundSmooth = () => {
-    const MIN_SPEED = 2.5
-    const MAX_SPEED = 4.5
+    const MIN_SPEED = 0.5
+    const MAX_SPEED = 2
 
     const randomNumber = (min, max) => {
       return Math.random() * (max - min) + min
@@ -29,27 +31,25 @@ const BackgroundSmooth = () => {
             this.x += this.vx
             this.y += this.vy
             if (this.x >= window.innerWidth - this.size) {
-            this.x = window.innerWidth - this.size
-            this.vx *= -1
+                this.x = window.innerWidth - this.size
+                this.vx *= -1
             }
             if (this.y >= window.innerHeight - this.size) {
-            this.y = window.innerHeight - this.size
-            this.vy *= -1
+                this.y = window.innerHeight - this.size
+                this.vy *= -1
             }
             if (this.x <= 0) {
-            this.x = 0
-            this.vx *= -1
+                this.x = 0
+                this.vx *= -1
             }
             if (this.y <= 0) {
-            this.y = 0
-            this.vy *= -1
+                this.y = 0
+                this.vy *= -1
             }
         }
         
         move() {
-            this.el.style.transform = `translate(${this.x - this.initialX}px, ${
-            this.y - this.initialY
-            }px)`
+            this.el.style.transform = `translate(${this.x - this.initialX}px, ${this.y - this.initialY}px)`;
         }
     }
 
@@ -60,15 +60,20 @@ const BackgroundSmooth = () => {
         const update = () => {
             requestAnimationFrame(update)
             blobs.forEach((blob) => {
-            blob.update()
-            blob.move()
+                blob.update()
+                blob.move()
             })
         }
         
         requestAnimationFrame(update)
     }
-    
-    initBlobs()
+
+    useEffect(() => {
+        initBlobs();
+        return () => {
+
+        };
+    }, []);
 
     return (
         <div className="bouncing-blobs-container">
