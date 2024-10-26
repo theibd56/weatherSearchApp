@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/weatherSearchApp/static/css/main.ddcf4bb1.css",
-    "main.js": "/weatherSearchApp/static/js/main.d11defba.js",
+    "main.css": "/weatherSearchApp/static/css/main.552f444f.css",
+    "main.js": "/weatherSearchApp/static/js/main.52ed996e.js",
     "static/media/insta.svg": "/weatherSearchApp/static/media/insta.fcdca5f36b204af1f64952483e59e529.svg",
     "static/media/telegram.svg": "/weatherSearchApp/static/media/telegram.b113a107b61016007a631decf9da2324.svg",
     "static/media/github.svg": "/weatherSearchApp/static/media/github.b56b006e26713a915a12c20f9959c957.svg",
     "static/media/solar_temperature-linear.svg": "/weatherSearchApp/static/media/solar_temperature-linear.9e8d836c215be2dcb635147860a41066.svg",
     "static/media/wind.svg": "/weatherSearchApp/static/media/wind.02d2e1fa9a76f5c24605c99ee0b7efd3.svg",
     "index.html": "/weatherSearchApp/index.html",
-    "static/media/search-normal.svg": "/weatherSearchApp/static/media/search-normal.4f674ef2fe0c1b0d66ef7e30554876eb.svg",
+    "static/media/search-normal.svg": "/weatherSearchApp/static/media/search-normal.eff1e4307e4eaa0c50e5ef881256accc.svg",
     "static/media/drop.svg": "/weatherSearchApp/static/media/drop.2ad942f29214664611d357f4fe85f435.svg",
-    "main.ddcf4bb1.css.map": "/weatherSearchApp/static/css/main.ddcf4bb1.css.map",
-    "main.d11defba.js.map": "/weatherSearchApp/static/js/main.d11defba.js.map"
+    "main.552f444f.css.map": "/weatherSearchApp/static/css/main.552f444f.css.map",
+    "main.52ed996e.js.map": "/weatherSearchApp/static/js/main.52ed996e.js.map"
   },
   "entrypoints": [
-    "static/css/main.ddcf4bb1.css",
-    "static/js/main.d11defba.js"
+    "static/css/main.552f444f.css",
+    "static/js/main.52ed996e.js"
   ]
 }
