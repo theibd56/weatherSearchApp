@@ -7,8 +7,10 @@ import solar_temperature from '../../resources/solar_temperature-linear.svg';
 import windImage from '../../resources/wind.svg';
 
 import WeatherItem from "../weatherItem/WeatherItem";
+import {useHttp} from "../../hooks/http.hook";
 
 const SearchPanel = () => {
+    const {request} = useHttp();
 
     const [city, setCity] = useState(null);
     const [temp, setTemp] = useState(null);
@@ -28,20 +30,13 @@ const SearchPanel = () => {
     };
 
     //A test key to ensure operability
-    const _apiKey = 'b387d43b771fe20d3b3eab2f49ea6426';   
+    // const _apiKey = 'ea702db0e4896914a4bc64efcc61b406'; new key
+    const _apiKey = 'b387d43b771fe20d3b3eab2f49ea6426';
 
     const getWeather = async (city) => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${_apiKey}`)
-        .then((response) => {
-            if (!response.ok) {
-                alert("No weather found");
-                throw new Error("No weather found");
-            }
-            return response.json();
-        })
-        .then((data) => _transformWeather(data))
-        .catch((e) => {console.error(e, e.stack)})
-    }
+        const res = await request(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${_apiKey}`);
+        return _transformWeather(res)
+    };
 
     const _transformWeather = (data) => {
         setCity(city => data.name);
