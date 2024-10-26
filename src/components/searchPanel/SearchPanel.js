@@ -30,12 +30,14 @@ const SearchPanel = () => {
     };
 
     //A test key to ensure operability
-    // const _apiKey = 'ea702db0e4896914a4bc64efcc61b406'; new key
     const _apiKey = 'b387d43b771fe20d3b3eab2f49ea6426';
 
     const getWeather = async (city) => {
         const res = await request(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${_apiKey}`);
-        return _transformWeather(res)
+        if(res !== undefined) {
+            return _transformWeather(res)
+        }
+
     };
 
     const _transformWeather = (data) => {
